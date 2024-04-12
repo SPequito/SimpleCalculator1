@@ -5,40 +5,59 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/_061845">
 
     <EditText
         android:id="@+id/number1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="131dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Enter a number here..."
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:numeric="decimal"
+        app:layout_constraintEnd_toStartOf="@+id/number2"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/number2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="131dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="50dp"
         android:ems="10"
         android:hint="Enter a number here..."
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:minHeight="48dp"
+        android:numeric="decimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/number1" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSelectOperator"
+        android:layout_width="24dp"
+        android:layout_height="20dp"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/operators"
+        app:layout_constraintEnd_toStartOf="@+id/number2"
+        app:layout_constraintStart_toEndOf="@+id/number1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <RadioGroup
         android:id="@+id/operators"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/number2">
 
@@ -46,6 +65,7 @@
             android:id="@+id/radioButtonAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="16px"
             android:text="+"
             tools:text="+" />
 
@@ -53,7 +73,24 @@
             android:id="@+id/radioButtonSub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="16px"
             android:text="-" />
+
+        <RadioButton
+            android:id="@+id/radioButtonMult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="16px"
+            android:text="x" />
+
+        <RadioButton
+            android:id="@+id/radioButtonDiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="16px"
+            android:text=":" />
 
     </RadioGroup>
 
@@ -74,8 +111,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Result"
+        android:textAlignment="center"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonEqual" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
